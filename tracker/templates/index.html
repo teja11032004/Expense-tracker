@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Expense Tracker</title>
     <link rel="stylesheet" href="/media/css/main.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/fontawesome.min.css" integrity="sha512-M5Kq4YVQrjg5c2wsZSn27Dkfm/2ALfxmun0vUE3mPiJyK53hQBHYCVAtvMYEC7ZXmYLg8DVG4tF8gD27WmDbsg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     
 </head>
 <body>
@@ -14,7 +15,7 @@
             <img src="https://i.ibb.co/jfScDTC/budget.png" alt="Expense Tracker" />
             <div class="balance-container">
                 <h2>Your Balance</h2>
-                <h2 id="balance" class="balance">$0.0</h2>
+                <h2 id="balance" class="balance">${{balance.amount}}</h2>
             </div>
         </div>
         <div class="inc-exp-container">
@@ -33,10 +34,10 @@
         <ul id="list" class="list">
             {% for transaction in transactions %}
 
-            <li class="{% if transaction.expense_type == 'DEBIT' %} minus {% else %} plus {% endif %}">
+            <li class="{% if transaction.expense_type == 'Debit' %} minus {% else %} plus {% endif %}">
                 {{transaction.description}} <span> {{transaction.amount}} </span>
                 <a class="delete-btn" href="{% url 'delete_transaction' transaction.id %}">
-                    <i class="fas fa-trash-alt"></i></a>
+                    <i class="fa-solid fa-trash"></i></a>
             </li>
 
             {% endfor %}
