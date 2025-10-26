@@ -1,0 +1,28 @@
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+    
+</head>
+{% extends "base.html"%}
+{% block start %}
+
+<div style="margin-top:-20px !important;">
+ <h3>Login Page</h3>
+        <form method="POST" id="form">
+            {% csrf_token %}
+            <div class="form-control">
+                <label for="text">Username</label>
+                <input type="text" name="username" id="text" placeholder="Username" />
+            </div>
+            <div class="form-control">
+                <label for="amount">password <br />
+                   </label>
+                <input type="password" name="password" id="amount" placeholder="password" />
+            </div>
+            <p> Don't have an account<a href={% url 'register_page'%}>Register</a></p>
+            <button class="btn" type="submit">Login</button>
+        </form>
+</div>
+
+
+{% endblock %}

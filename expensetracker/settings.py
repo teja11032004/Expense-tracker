@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure-tdni-c(*spdhqz_lan(tp4z^-^c&n^rh1^ay80z_ugd^yc690w
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -48,6 +48,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "expensetracker.middleware.RequestLoginMiddleware.RequestLogin",
 ]
 
 ROOT_URLCONF = "expensetracker.urls"
@@ -66,6 +67,8 @@ TEMPLATES = [
         },
     },
 ]
+
+
 
 WSGI_APPLICATION = "expensetracker.wsgi.application"
 
